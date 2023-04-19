@@ -3534,6 +3534,9 @@ def MakeRecoveryPatch(input_dir, output_sink, recovery_img, boot_img,
         diff_program.append("-b")
         diff_program.append(path)
         bonus_args = "--bonus /vendor/etc/recovery-resource.dat"
+        if 'lineage_mido' in path:
+            diff_program = ["bsdiff"]
+            bonus_args = ""
       else:
         bonus_args = ""
 
